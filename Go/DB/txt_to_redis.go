@@ -1,4 +1,4 @@
-package main
+package DB
 
 import (
 	"bufio"
@@ -7,7 +7,8 @@ import (
 	"os"
 )
 
-func readTxt() {
+// Read the txt file and set the value into the database.
+func ReadTxt() {
 	file, err := os.Open("es.txt")
 	if err != nil {
 		log.Fatal("The name file is not the correct one")
@@ -18,15 +19,8 @@ func readTxt() {
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanWords)
 
+	//TODO Change this to handle the insertion of the value for the redis database.
 	for scanner.Scan() {
 		fmt.Println(scanner.Text())
 	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-}
-
-func main() {
-	readTxt()
 }
