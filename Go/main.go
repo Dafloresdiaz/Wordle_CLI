@@ -1,8 +1,6 @@
 package Go
 
-import (
-	"github.com/Go/DB/txt_to_redis"
-)
+import "github.com/Dafloresdiaz/Wordle_CLI/Go/DB/txt_to_redis"
 
 func main() int {
 	txt_to_redis.ReadTxt()
